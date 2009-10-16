@@ -8,7 +8,7 @@ def doc(s):
         return g
     return f
 
-class HeapDict(collections.MutableMapping):
+class heapdict(collections.MutableMapping):
     __marker = object()
 
     @staticmethod
@@ -107,4 +107,4 @@ class HeapDict(collections.MutableMapping):
         return (self.heap[0][1], self.heap[0][0])
 
 del doc
-__all__ = ['HeapDict']
+__all__ = ['heapdict']

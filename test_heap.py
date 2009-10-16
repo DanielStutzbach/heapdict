@@ -1,4 +1,4 @@
-from heapdict import HeapDict
+from heapdict import heapdict
 import random
 import unittest
 from test import test_support
@@ -15,7 +15,7 @@ class TestHeap(unittest.TestCase):
 
     def make_data(self):
         pairs = [(random.random(), random.random()) for i in range(N)]
-        h = HeapDict()
+        h = heapdict()
         d = {}
         for k, v in pairs:
             h[k] = v
@@ -33,7 +33,7 @@ class TestHeap(unittest.TestCase):
         self.assertEqual(len(h), 0)
 
     def test_popitem_ties(self):
-        h = HeapDict()
+        h = heapdict()
         for i in range(N):
             h[i] = 0
         for i in range(N):

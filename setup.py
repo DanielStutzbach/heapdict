@@ -8,7 +8,7 @@ if sys.version_info[0] <= 2:
 else:
     from distutils.core import setup, Extension
 
-setup(name='HeapDict',
+setup(name='heapdict',
       version='0.1.5',
       description='a heap with decrease-key and increase-key operations',
       author='Stutzbach Enterprises, LLC',
@@ -31,36 +31,6 @@ setup(name='HeapDict',
             'Programming Language :: Python :: 3.1',
             ],
 
-      long_description="""
-HeapDict: a heap with decreased-key and increase-key operations
-===============================================================
-
-HeapDict implements the MutableMapping ABC, meaning it works pretty
-much like a regular Python dict.  It's designed to be used as a
-priority queue, where items are added and consumed as follows:
-
-.. parsed-literal::
-
-    hd = HeapDict()
-    hd[obj1] = priority1
-    hd[obj2] = priority2
-    # ...
-    obj = hd.pop()
-
-Compared to an ordinary dict, a HeapDict has the following differences:
-
-popitem():
-    Remove and return the (key, priority) pair with the lowest
-    priority, instead of a random object.
-
-peekitem():
-    Return the (key, priority) pair with the lowest priority, without
-    removing it.
-
-Unlike the Python standard library's heapq module, the HeapDict
-supports efficiently changing the priority of an existing object
-(often called "decrease-key" in textbooks).  Altering the priority is
-important for many algorithms such as Dijkstra's Algorithm and A*.
-""",
+      long_description=open('README.rst').read(),
             
       )
