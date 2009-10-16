@@ -5,6 +5,8 @@ heapdict implements the MutableMapping ABC, meaning it works pretty
 much like a regular Python dict.  It's designed to be used as a
 priority queue, where items are added and consumed as follows:
 
+::
+
     hd = heapdict()
     hd[obj1] = priority1
     hd[obj2] = priority2
