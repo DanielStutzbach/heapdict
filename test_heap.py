@@ -1,10 +1,14 @@
+from __future__ import print_function
 from heapdict import heapdict
 import random
 import unittest
-from test import test_support
 import sys
+try:
+    import test.support as test_support # Python 3
+except ImportError:
+    import test.test_support as test_support # Python 2
 
-N = 10
+N = 100
 
 class TestHeap(unittest.TestCase):
     def check_invariants(self, h):
@@ -100,7 +104,7 @@ def test_main(verbose=None):
             test_support.run_unittest(*test_classes)
             gc.collect()
             counts[i] = sys.gettotalrefcount()
-        print counts
+        print(counts)
 
 if __name__ == "__main__":
     test_main(verbose=True)

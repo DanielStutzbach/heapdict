@@ -1,7 +1,7 @@
 import collections
 
 def doc(s):
-    if callable(s):
+    if hasattr(s, '__call__'):
         s = s.__doc__
     def f(g):
         g.__doc__ = s
