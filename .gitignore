@@ -1,0 +1,12 @@
+*.pyc
+*.pyo
+*.pyd
+*.d
+*.o
+dist/
+build/
+.backup/
+*.stackdump
+*~
+*.egg-info
+setuptools-*.egg
