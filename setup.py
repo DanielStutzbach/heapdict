@@ -8,7 +8,7 @@ if sys.version_info[0] <= 2:
 else:
     from distutils.core import setup, Extension
 
-setup(name='heapdict',
+setup(name='HeapDict',
       version='1.0.0',
       description='a heap with decrease-key and increase-key operations',
       author='Stutzbach Enterprises, LLC',
