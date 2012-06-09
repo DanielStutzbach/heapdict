@@ -30,7 +30,7 @@ class heapdict(collections.MutableMapping):
 
     @doc(dict.clear)
     def clear(self):
-        self.heap.clear()
+        del self.heap[:]
         self.d.clear()
 
     @doc(dict.__setitem__)

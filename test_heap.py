@@ -89,6 +89,11 @@ class TestHeap(unittest.TestCase):
             self.assertEqual(v, v2)
         self.assertEqual(len(h), 0)
 
+    def test_clear(self):
+        h, pairs, d = self.make_data()
+        h.clear()
+        self.assertEqual(len(h), 0)
+
 #==============================================================================
 
 def test_main(verbose=None):
