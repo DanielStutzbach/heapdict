@@ -11,7 +11,7 @@ priority queue, where items are added and consumed as follows:
     hd[obj1] = priority1
     hd[obj2] = priority2
     # ...
-    obj = hd.pop()
+    (obj, priority) = hd.popitem()
 
 Compared to an ordinary dict, a heapdict has the following differences:
 
