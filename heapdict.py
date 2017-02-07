@@ -37,12 +37,12 @@ class heapdict(MutableMapping):
         self._decrease_key(len(self.heap)-1)
 
     def _min_heapify(self, i):
+        n = len(self.heap)
         while True:
             # calculate the offset of the left child
             l = (i << 1) + 1
             # calculate the offset of the right child
             r = (i + 1) << 1
-            n = len(self.heap)
             if l < n and self.heap[l][0] < self.heap[i][0]:
                 low = l
             else:
