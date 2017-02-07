@@ -67,9 +67,10 @@ class heapdict(MutableMapping):
             i = parent
 
     def _swap(self, i, j):
-        self.heap[i], self.heap[j] = self.heap[j], self.heap[i]
-        self.heap[i][2] = i
-        self.heap[j][2] = j
+        h = self.heap
+        h[i], h[j] = h[j], h[i]
+        h[i][2] = i
+        h[j][2] = j
 
     @doc(dict.__delitem__)
     def __delitem__(self, key):
