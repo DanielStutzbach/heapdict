@@ -46,19 +46,22 @@ class heapdict(MutableMapping):
         self._decrease_key(len(self.heap)-1)
 
     def _min_heapify(self, i):
-        l = self._left(i)
-        r = self._right(i)
-        n = len(self.heap)
-        if l < n and self.heap[l][0] < self.heap[i][0]:
-            low = l
-        else:
-            low = i
-        if r < n and self.heap[r][0] < self.heap[low][0]:
-            low = r
+        while True:
+            l = self._left(i)
+            r = self._right(i)
+            n = len(self.heap)
+            if l < n and self.heap[l][0] < self.heap[i][0]:
+                low = l
+            else:
+                low = i
+            if r < n and self.heap[r][0] < self.heap[low][0]:
+                low = r
 
-        if low != i:
+            if low == i:
+                break
+
             self._swap(i, low)
-            self._min_heapify(low)
+            i = low
 
     def _decrease_key(self, i):
         while i:
