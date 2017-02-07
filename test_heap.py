@@ -5,11 +5,14 @@ import random
 import unittest
 import sys
 try:
-    import test.support as test_support # Python 3
+    # Python 3
+    import test.support as test_support
 except ImportError:
-    import test.test_support as test_support # Python 2
+    # Python 2
+    import test.test_support as test_support
 
 N = 100
+
 
 class TestHeap(unittest.TestCase):
 
@@ -32,7 +35,7 @@ class TestHeap(unittest.TestCase):
 
         pairs.sort(key=lambda x: x[1], reverse=True)
         return h, pairs, d
-    
+
     def test_popitem(self):
         h, pairs, d = self.make_data()
         while pairs:
@@ -86,7 +89,7 @@ class TestHeap(unittest.TestCase):
         k, v = pairs[N//2]
         h[k] = 0.5
         pairs[N//2] = (k, 0.5)
-        pairs.sort(key = lambda x: x[1], reverse=True)
+        pairs.sort(key=lambda x: x[1], reverse=True)
         while pairs:
             v = h.popitem()
             v2 = pairs.pop(-1)
@@ -98,11 +101,8 @@ class TestHeap(unittest.TestCase):
         h.clear()
         self.assertEqual(len(h), 0)
 
-#==============================================================================
 
 def test_main(verbose=None):
-    from types import BuiltinFunctionType
-
     test_classes = [TestHeap]
     test_support.run_unittest(*test_classes)
 
@@ -110,11 +110,12 @@ def test_main(verbose=None):
     if verbose and hasattr(sys, "gettotalrefcount"):
         import gc
         counts = [None] * 5
-        for i in xrange(len(counts)):
+        for i in range(len(counts)):
             test_support.run_unittest(*test_classes)
             gc.collect()
             counts[i] = sys.gettotalrefcount()
         print(counts)
+
 
 if __name__ == "__main__":
     test_main(verbose=True)
