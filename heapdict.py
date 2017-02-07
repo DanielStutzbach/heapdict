@@ -14,10 +14,6 @@ def doc(s):
 class heapdict(MutableMapping):
     __marker = object()
 
-    @staticmethod
-    def _parent(i):
-        return ((i - 1) >> 1)
-
     def __init__(self, *args, **kw):
         self.heap = []
         self.d = {}
@@ -59,7 +55,8 @@ class heapdict(MutableMapping):
 
     def _decrease_key(self, i):
         while i:
-            parent = self._parent(i)
+            # calculate the offset of the parent
+            parent = (i - 1) >> 1
             if self.heap[parent][0] < self.heap[i][0]: break
             self._swap(i, parent)
             i = parent
@@ -73,7 +70,8 @@ class heapdict(MutableMapping):
     def __delitem__(self, key):
         wrapper = self.d[key]
         while wrapper[2]:
-            parentpos = self._parent(wrapper[2])
+            # calculate the offset of the parent
+            parentpos = (wrapper[2] - 1) >> 1
             parent = self.heap[parentpos]
             self._swap(wrapper[2], parent[2])
         self.popitem()
