@@ -1,4 +1,7 @@
-import collections
+try:
+    from collections.abc import MutableMapping
+except ImportError:
+    from collections import MutableMapping
 
 def doc(s):
     if hasattr(s, '__call__'):
@@ -8,7 +11,7 @@ def doc(s):
         return g
     return f
 
-class heapdict(collections.MutableMapping):
+class heapdict(MutableMapping):
     __marker = object()
 
     @staticmethod
