@@ -3,7 +3,7 @@
 from setuptools import setup
 
 setup(name='HeapDict',
-      version='1.0.0',
+      version='1.0.1',
       description='a heap with decrease-key and increase-key operations',
       author='Stutzbach Enterprises, LLC',
       author_email='daniel@stutzbachenterprises.com',
