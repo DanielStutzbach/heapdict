@@ -1,12 +1,6 @@
 #!/usr/bin/env
 
-import sys
-if sys.version_info[0] <= 2:
-    import ez_setup
-    ez_setup.use_setuptools()
-    from setuptools import setup, Extension
-else:
-    from distutils.core import setup, Extension
+from setuptools import setup
 
 setup(name='HeapDict',
       version='1.0.0',
@@ -35,5 +29,4 @@ setup(name='HeapDict',
           ],
 
       long_description=open('README.rst').read(),
-            
       )

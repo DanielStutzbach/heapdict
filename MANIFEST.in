@@ -1,5 +1,4 @@
 include heapdict.py
-include ez_setup.py
 include LICENSE
 include test_heap.py
 include setup.py
